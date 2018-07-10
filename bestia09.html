@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>La Bestia</title>
+      <link rel="stylesheet" href="123_contenuto.css">
+        <script src="jquery.min.js">
+      </script>
+      <script src="jquery-ui/jquery-ui.min.js">
+      </script>
+      <meta charset="UTF-8">
+      <link href="https://fonts.googleapis.com/css?family=Great+Vibes"
+      rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+  </head>
+
+
+ <body style="background-image: url(Sfondi/terrenoBLUR.jpg);
+  background-size: cover;">
+   <br><br> <a class="labestia" href="bestia_copertina.html"><h1>La Bestia</h1></a>
+<br><br>
+
+<div id="p9" class="sezioni" >
+
+<p style="background-color: rgba(50, 50, 50, 0.5); padding:10px;">
+In quel momento, nel cielo scoppia un violento temporale, calano le tenebre e tutto si fa scuro. Ginevra esclama
+  piangendo e supplicando: <em>"Padre, Dio della foresta, risparmia il mio amato,
+  ha dato a vostra figlia un amore eterno! Risparmiatelo!"</em><br>
+Intanto la burrasca si fa più intensa. Una goccia del sangue di Ginevra, a contatto
+con la terra, fa spuntare velocemente una bellissima rosa che si alza verso il cielo.</p>
+
+<div id="rosafissa">
+<a href="bestia09a.html"><div class="avanti" id="vai"><img src="ScreenShot/freccia.png"></div></a>
+<div id="rosa"><img src="ScreenShot/rosaGambo.png" width="100px"></div>
+<div id="rettangolo"></div>
+</div>
+</div>
+
+
+<script>
+
+muovi_rosa = function() {$("#rosa").animate({top:100}, 8000)
+ $("#rosa").addClass("oscillante") 
+}                               
+
+muovi_rosa()
+
+setTimeout(function() {
+  $("#vai").fadeIn()
+}, 9000)
+
+
+
+</script>
+
+
+ </body>
+ 
+</html>

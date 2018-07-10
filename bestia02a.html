@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>La Bestia</title>
+      <link rel="stylesheet" href="123_contenuto.css">
+       <script src="jquery.min.js">
+      </script>
+      <script src="jquery-ui/jquery-ui.min.js">
+      </script>
+      <meta charset="UTF-8">
+      <link href="https://fonts.googleapis.com/css?family=Great+Vibes"
+      rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+  </head>
+
+
+ <body style="background-image: url(Sfondi/pavimentoBLUR.png);
+  background-size: cover;">
+
+   <br><br> <a class="labestia" href="bestia_copertina.html"><h1>La Bestia</h1></a>
+<br><br>
+
+	<div id ="sfondo">
+	
+<div id="cerchio"><img id="coppia" src="ScreenShot/ballo.png"></div>
+ 
+	</div>
+   <br><br>
+   <div id="p2" class="sezioni" >
+
+<a href="bestia05.html"><div class="avanti" id="vai"><img src="ScreenShot/freccia.png"></div></a>
+
+	</div>
+   
+   
+   <script> 
+ var x = 0;
+var y = 0;
+
+muovi = function () {
+  x = Math.random() * 300;
+  y = Math.random() * 100;
+  sposta()
+  setTimeout(muovi, 1000)
+  
+}
+
+sposta = function() {
+  $("#cerchio").animate({
+    left: x,
+    top: y
+  })
+}
+
+muovi_coppia = function() {
+  $("#coppia").addClass("ruotano")
+  $("#cerchio").addClass("ruotano2") 
+  muovi()
+}
+
+muovi_coppia()
+
+
+
+setTimeout(function() {
+  $("#vai").fadeIn()
+}, 7000) 
+
+   </script>
+ </body>
+</html>

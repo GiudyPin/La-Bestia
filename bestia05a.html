@@ -1,0 +1,151 @@
+<html>
+  <head>
+    <title>La Bestia</title>
+      <link rel="stylesheet" href="123_contenuto.css">
+        <script src="jquery.min.js">
+      </script>
+      <script src="jquery-ui/jquery-ui.min.js">
+      </script>
+      <meta charset="UTF-8">
+      <link href="https://fonts.googleapis.com/css?family=Great+Vibes"
+      rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  </head>
+
+
+ <body style="background-image: url(Sfondi/RENDERscena05aBLUR.png);
+  background-size: cover;">
+   <br><br> <a class="labestia" href="bestia_copertina.html"><h1>La Bestia</h1></a>
+<br><br>
+
+<div id="p5" class="sezioni"> 
+
+<div>
+	<div id="Contienetutto">
+  <div id="area">
+
+
+<div id="box1"><img src="ScreenShot/cervo.png"></div>
+  
+</div>
+<div id="box0"><img src="ScreenShot/principe.png"></div>
+
+</div>
+
+
+  <a href="bestia07.html"><div id="quandoPerdi" class="avanti"><p class="avanti_testo">Il cervo, accorgendosi
+    della presenza minacciosa di qualcuno, scappa spaventato.</p></div></a>
+    
+    <a href="bestia08.html"><div id="quandoVinci" class="avanti"><p class="avanti_testo">Avvicinatosi all'animale, il principe
+      vede riflesso nell'acqua cristallina del fiume l'inconfondibile
+       volto di Ginevra. Abbagliato da questa visione, svanisce in lui
+       il desiderio di concquistare l'ambito trofeo.</p></div></a></div>
+       
+</div>
+
+<script>
+
+// omino si muove a caso
+
+var x = 0;
+var y = 0;
+var velocitaMovimento  = 300;
+var durataGioco = 15000;  
+
+move_bird = function() {
+  x = Math.random()*velocitaMovimento;
+  y = Math.random()*velocitaMovimento;
+ $("#box1").animate({top:y, left:x}, 500);
+};
+
+noCollision = function() {
+  p1 = $("#box1").offset();
+  p2 = $("#box0").offset();
+  if(p1 !== undefined && p2 !== undefined)
+  return ((p1.top+50) < p2.top) ||
+            (p1.top > (p2.top + 50)) ||
+            (p1.left > (p2.left + 50)) ||
+            ((p1.left+50) < p2.left);
+  else return false;
+};
+
+$(document).ready(function(){
+  
+  //Avvia movimento omino
+  setInterval(move_bird, 500);
+  
+  // funzione per muovere div con i tasti
+$(document).keydown(function(e) {
+    switch (e.which) { 
+    case 37:
+        $('#box0').stop().animate({
+            left: '-='+velocitaMovimento
+        }); //left arrow key
+        break;
+    case 38:
+        $('#box0').stop().animate({
+            top: '-='+velocitaMovimento
+        }); //up arrow key
+        break;
+    case 39:
+        $('#box0').stop().animate({
+            left: '+='+velocitaMovimento
+        }); //right arrow key
+        break;
+    case 40:
+        $('#box0').stop().animate({
+            top: '+='+velocitaMovimento
+        }); //bottom arrow key
+        break; 
+    }
+});
+  
+ //Avvia la funzione che controlla se vinci o perdi
+ 
+ perdi = function() {
+	$("#quandoPerdi").show();
+	stop();
+	$("#box1").fadeOut();
+	$("#box0").fadeOut();
+ }
+ 
+ perdiTimeout = setTimeout(perdi, durataGioco)
+ 
+
+ 
+ 
+ var  timer =  setInterval(function(){controllaVittoria()},100);
+  
+  function stop(){ 
+    clearInterval(timer);
+  };
+  
+  //Controlla Se Vinci o perdi
+function controllaVittoria() {
+  if(!noCollision()) {
+      $("#quandoVinci").show();
+	  clearTimeout(perdiTimeout);
+	  stop();
+	  $("#box1").fadeOut();
+	$("#box0").fadeOut();
+  } /*else{ 
+    $("#quandoPerdi").show();
+  }
+  $('#Contienetutto').remove();
+  //Stoppa il cotrolla vittoria
+   stop();*/
+};
+  
+  
+});
+
+
+
+
+
+</script>
+
+ </body>
+</html>
+

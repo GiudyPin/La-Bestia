@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title>La Bestia</title>
+      <link rel="stylesheet" href="123_contenuto.css">
+      <script src="jquery.min.js">
+      </script>
+      <script src="jquery-ui/jquery-ui.min.js">
+      </script>
+      <meta charset="UTF-8">
+      <link href="https://fonts.googleapis.com/css?family=Great+Vibes"
+      rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+  </head>
+
+
+ <body style="background-image: url(Sfondi/RENDERscenahomeBLUR.png);
+  background-size: cover;">
+
+   <br><br> <a class="labestia" href="bestia_copertina.html"><h1>La Bestia</h1></a>
+<br><br>
+
+   <div id="intro" class="sezioni">
+   <p style="background-color: rgba(50, 50, 50, 0.5); padding:10px;">C'era una volta un bel principe di nome
+     Edward, coraggioso e audace, che viveva in un castello sul monte Weiss
+     insieme alla sua amata principessa. Il principe era solito andare a caccia
+     con i suoi uomini alla ricerca del famoso cervo dorato, che tanto
+     desiderava catturare, mentre la principessa Ginevra passava intere
+     giornate a coltivare le rose in attesa che Edward tornasse a casa.</p>
+<div id="gioco">
+  <div id="obj"></div>
+  <div id="obj2"></div>
+  <div id="obj3"></div>
+  <div id="droparea"></div>
+  <a href="niente" id="continua">Continua</a>
+</div>
+     
+   <a href="bestia01.html"><div id="avanti1"><img src="ScreenShot/freccia.png"></div></a>
+   </div>
+
+   <script>
+$("#obj").draggable()
+$("#obj2").draggable()
+$("#obj3").draggable()
+
+ $("#obj").on("dragstop", quandoDroppo)
+$("#obj2").on("dragstop", quandoDroppo2)
+$("#obj3").on("dragstop", quandoDroppo3)
+
+var x = 0;
+
+function quandoDroppo (e, ui) {
+  if (ui.position.top > 50 && ui.position.top < 300 && ui.position.left > 100 && ui.position.left < 400) {
+    $("#obj").css({"display":"none"})
+    x = x + 1;
+    }
+  haivinto()
+}
+
+function quandoDroppo2 (e, ui) {
+  if (ui.position.top > 50 && ui.position.top < 300 && ui.position.left > 100 && ui.position.left < 400) {
+    $("#obj2").css({"display":"none"})
+   x = x + 1;}
+  haivinto()
+}
+
+
+function quandoDroppo3 (e, ui) {
+  if (ui.position.top > 50 && ui.position.top < 300 && ui.position.left > 100 && ui.position.left < 400) {
+    $("#obj3").css({"display":"none"})
+  x = x + 1;}
+ haivinto()
+}
+
+function haivinto() {
+  if(x == 3) {
+    $("#avanti1").css({"display":"inline-block", "width" : "100%"})
+  }
+}
+   </script>
+ </body>
+</html>
